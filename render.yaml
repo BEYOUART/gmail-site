@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: private-gmail-gateway
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: APP_PASSWORD
+        sync: false
+      - key: SESSION_SECRET
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GOOGLE_REDIRECT_URI
+        sync: false

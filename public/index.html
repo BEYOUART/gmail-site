@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Private Gmail Gateway</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <h1>Private Gmail Gateway</h1>
+        <p class="subtitle">Password-gated Gmail reader + sender</p>
+      </header>
+
+      <section id="statusBar" class="status-bar"></section>
+
+      <section id="unlockCard" class="card">
+        <h2>Unlock Site</h2>
+        <p>Enter your private app password to continue.</p>
+        <form id="unlockForm">
+          <label for="password">App Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required />
+          <button type="submit">Unlock</button>
+        </form>
+      </section>
+
+      <section id="connectCard" class="card hidden">
+        <h2>Connect Gmail</h2>
+        <p>Connect your Gmail account securely with Google OAuth.</p>
+        <a class="button" href="/auth/google">Connect Gmail</a>
+      </section>
+
+      <section id="mailCard" class="card hidden">
+        <div class="mail-actions">
+          <button id="refreshBtn" type="button">Refresh Inbox</button>
+          <button id="disconnectBtn" type="button" class="secondary">Disconnect + Lock</button>
+        </div>
+
+        <div class="layout-grid">
+          <section>
+            <h2>Inbox (Latest 20)</h2>
+            <ul id="inboxList" class="inbox-list"></ul>
+          </section>
+
+          <section>
+            <h2>Email Detail</h2>
+            <article id="messageDetail" class="message-detail">
+              <p>Select an email from the inbox to view details.</p>
+            </article>
+          </section>
+        </div>
+
+        <section>
+          <h2>Compose Email</h2>
+          <form id="composeForm" class="compose-form">
+            <label for="to">To</label>
+            <input id="to" name="to" type="email" required />
+
+            <label for="subject">Subject</label>
+            <input id="subject" name="subject" type="text" required />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="7" required></textarea>
+
+            <button type="submit">Send Email</button>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
